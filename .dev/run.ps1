@@ -1,1 +1,1 @@
-# TODO: Gerar arquivo pra rodar one liner
+docker-compose up
