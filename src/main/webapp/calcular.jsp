@@ -4,15 +4,38 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>Calculadora</title>
   </head>
   <body>
-    <input type="text"  />
-    <input type="text" />
+    <h1>Calculadora</h1>
 
-    <select>
-      <option>Selecione uma operação</option>
-    </select>
+    <div class="form-container">
+      <form action="calcular">
+        <div class="form-group">
+          <label for="valor1">Valor 1:</label>
+          <input type="text" id="valor1" name="valor1" value="${valor1}" />
+        </div>
 
-    <button type="button">Calcular</button>
+        <div class="form-group">
+          <label for="valor2">Valor 2:</label>
+          <input type="text" id="valor2" name="valor2" value="${valor2}" />
+        </div>
+
+        <div class="form-group">
+          <label for="op">Op:</label>
+          <select id="op" name="op">
+            <option value="">Selecione uma operação</option>
+            <option value="adicao">+</option>
+            <option value="subtracao">-</option>
+            <option value="multiplicacao">×</option>
+            <option value="divisao">/</option>
+          </select>
+        </div>
+
+        <button type="submit">Calcular</button>
+      </form>
+
+      <div>Expressão:</div>
+    </div>
   </body>
 </html>
