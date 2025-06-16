@@ -6,7 +6,7 @@
 
   <servlet>
     <servlet-name>Calculo</servlet-name>
-    <servlet-class>dev.adrianocahete.uva.servlets.Calculo</servlet-class>
+    <servlet-class>dev.adrianocahete.servlets.Calculo</servlet-class>
   </servlet>
 
   <servlet-mapping>
