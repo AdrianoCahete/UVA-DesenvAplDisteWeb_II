@@ -25,8 +25,10 @@ O código fonte está disponível no GitHub: <https://github.com/AdrianoCahete/U
 
 ## Notas
 
-- Coloquie no docker porque minha máquina é Windows e não pretendo instalar o Tomcat aqui.
-- Este Readme foi feito com base no que eu pedi pro Github Copilot (Claude 3.7). Mas o código em si eu gosto de fazer por mim mesmo.
+- Coloquei no docker porque minha máquina é Windows e não pretendo instalar o Tomcat aqui;
+- Este Readme foi feito com base no que eu pedi pro Github Copilot (Claude 3.7). Mas o código em si eu gosto de fazer por mim mesmo;
+- Fiz a validação de numero real ou não, mas a validação se é numero vem do input de number ao ivnes de usar o input text;
+
 
 
 ## Outros estudantes
