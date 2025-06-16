@@ -1,6 +1,6 @@
 # UVA-DesenvAplDisteWeb_II
 
-Esta é uma aplicação JSP simples que pode ser executada usando Docker.
+Esta é uma aplicação JSP de calculadora.
 
 ## Repositório
 
@@ -22,10 +22,17 @@ O código fonte está disponível no GitHub: <https://github.com/AdrianoCahete/U
 ### **Acesse a aplicação**:
    Abra um navegador web e navegue até [http://localhost:8080](http://localhost:8080)
 
+
 ## Notas
 
 - Coloquie no docker porque minha máquina é Windows e não pretendo instalar o Tomcat aqui.
 - Este Readme foi feito com base no que eu pedi pro Github Copilot (Claude 3.7). Mas o código em si eu gosto de fazer por mim mesmo.
+
+
+## Outros estudantes
+
+Evitem copiar, mas se precisarem de algum exemplo, podem usar, só não esqueçam de referenciar o repositório e eu mesmo. :)
+
 
 ## Referências
 
