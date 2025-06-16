@@ -1,0 +1,34 @@
+# UVA-DesenvAplDisteWeb_II
+
+Esta é uma aplicação JSP simples que pode ser executada usando Docker.
+
+## Repositório
+
+Este repositório é parte da AVA2 (AV1) da disciplina de Desenvolvimento de Aplicações Distribuídas Web II da UVA.  
+O código fonte está disponível no GitHub: <https://github.com/AdrianoCahete/UVA-DesenvAplDisteWeb_II>
+ 
+
+
+## Executando
+
+### Docker
+   Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### **Execute a aplicação usando o Docker**:
+   ```
+   docker-compose up
+   ```
+
+### **Acesse a aplicação**:
+   Abra um navegador web e navegue até [http://localhost:8080](http://localhost:8080)
+
+## Notas
+
+- Coloquie no docker porque minha máquina é Windows e não pretendo instalar o Tomcat aqui.
+- Este Readme foi feito com base no que eu pedi pro Github Copilot (Claude 3.7). Mas o código em si eu gosto de fazer por mim mesmo.
+
+## Referências
+
+- [Referência do Dockerfile](https://docs.docker.com/engine/reference/builder/)
+- [Imagem Docker Oficial do Tomcat](https://hub.docker.com/_/tomcat)
+- [Documentação do Tomcat](https://tomcat.apache.org/tomcat-10.0-doc/index.html)
