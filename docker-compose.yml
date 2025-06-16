@@ -4,8 +4,6 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
+      - "8888:8080"
     volumes:
       - ./src/main/webapp:/usr/local/tomcat/webapps/ROOT
-    environment:
-      - CATALINA_OPTS=-Xms512m -Xmx1024m
