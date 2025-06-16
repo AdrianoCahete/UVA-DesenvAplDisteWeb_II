@@ -41,9 +41,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-# VS Code files
-.vscode/
-
 # Maven
 target/
 pom.xml.tag
