@@ -3,7 +3,12 @@ version: '3'
 services:
   web:
     build: .
+
     ports:
       - "8888:8080"
+
     volumes:
       - ./src/main/webapp:/usr/local/tomcat/webapps/ROOT
+      - ./src/main/java:/usr/local/tomcat/src/main/java
+
+    command: sh -c "mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes && javac -cp '/usr/local/tomcat/lib/servlet-api.jar' -d /usr/local/tomcat/webapps/ROOT/WEB-INF/classes /usr/local/tomcat/src/main/java/br/edu/uva/servlets/Calculo.java && catalina.sh run"
