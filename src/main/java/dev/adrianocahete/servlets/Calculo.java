@@ -1,64 +1,97 @@
-package dev.adrianocahete.uva.servlets;
+package dev.adrianocahete.servlets;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class Calculo extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String val1 = request.getParameter("val1");
-    String val2 = request.getParameter("val2");
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String val1Str = request.getParameter("val1");
+    String val2Str = request.getParameter("val2");
     String op = request.getParameter("op");
 
-    request.setAttribute("val1", val1);
-    request.setAttribute("val2", val2);
+    request.setAttribute("val1", val1Str);
+    request.setAttribute("val2", val2Str);
     request.setAttribute("op", op);
 
-    if (val1 == null || val1.trim().isEmpty()) {
+    boolean hasError = false;
+    Float val1 = null;
+    Float val2 = null;
+
+    if (val1Str == null || val1Str.trim().isEmpty()) {
       request.setAttribute("erroV1", "O primeiro valor é obrigatório");
+      hasError = true;
     } else {
-      request.setAttribute("erroV1", "O primeiro valor deve ser um número válido");
+      try {
+        val1 = Float.parseFloat(val1Str);
+      } catch (NumberFormatException e) {
+        request.setAttribute("erroV1", "O primeiro valor deve ser um número válido");
+        hasError = true;
+      }
     }
 
-    if (val2 == null || val2.trim().isEmpty()) {
+    if (val2Str == null || val2Str.trim().isEmpty()) {
       request.setAttribute("erroV2", "O segundo valor é obrigatório");
+      hasError = true;
     } else {
-      request.setAttribute("erroV2", "O segundo valor deve ser um número válido");
+      try {
+        val2 = Float.parseFloat(val2Str);
+      } catch (NumberFormatException e) {
+        request.setAttribute("erroV2", "O segundo valor deve ser um número válido");
+        hasError = true;
+      }
     }
 
-
-    if (val1 != null && val2 != null && op != null) {
+    // Se não houver erros nos valores, realiza o cálculo
+    if (!hasError && val1 != null && val2 != null && op != null && !op.isEmpty()) {
+      Float res = null;
+      String expressao = "";
 
       switch (op) {
         case "adicao":
-          res = Integer.parseInt(val1) + Integer.parseInt(val2);
+          res = val1 + val2;
+          expressao = val1 + " + " + val2 + " = " + res;
+          break;
 
         case "subtracao":
-          res = Integer.parseInt(val1) - Integer.parseInt(val2);
+          res = val1 - val2;
+          expressao = val1 + " - " + val2 + " = " + res;
+          break;
 
         case "multiplicacao":
-          res = Integer.parseInt(val1) * Integer.parseInt(val2);
+          res = val1 * val2;
+          expressao = val1 + " x " + val2 + " = " + res;
+          break;
 
         case "divisao":
           if (val2 == 0) {
             request.setAttribute("erroDivisao", "Não é possível dividir por zero");
+            hasError = true;
           } else {
-            res = Integer.parseInt(val1) / Integer.parseInt(val2);
+            res = val1 / val2;
+            expressao = val1 + " / " + val2 + " = " + res;
           }
+          break;
+
+        default:
+          request.setAttribute("erroOp", "Selecione uma operação válida");
+          hasError = true;
           break;
       }
 
-      if (resultado != null) {
-        request.setAttribute("resultado", res);
+      if (!hasError && res != null) {
+        request.setAttribute("res", res);
+        request.setAttribute("expressao", expressao);
       }
+    } else if (op == null || op.isEmpty()) {
+      request.setAttribute("erroOp", "Selecione uma operação");
     }
 
-    // Encaminha para a página JSP
     request.getRequestDispatcher("/calcular.jsp").forward(request, response);
   }
 }
